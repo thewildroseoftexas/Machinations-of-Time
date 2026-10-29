@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Machinations of Time</title><style>
+:root{color-scheme:dark;font-family:Georgia,serif}*{box-sizing:border-box}body{margin:0;background:#100f10;color:#f4e4c6}header{text-align:center;padding:15px 12px;background:linear-gradient(#342516,#0d141b);border-bottom:2px solid #9e7436}h1{font-size:clamp(23px,4vw,39px);margin:0;letter-spacing:2px}header p{margin:7px;color:#c5b18c}.frame{max-width:1774px;margin:0 auto;position:relative}.scene{position:relative;width:100%;aspect-ratio:1774/887;background:url('steampunk-background.png') center/100% 100% no-repeat;overflow:hidden}.spot{position:absolute;transform:translate(-50%,-50%);border:0;border-radius:50%;background:transparent;cursor:pointer;min-width:28px;min-height:28px;touch-action:manipulation}.spot:focus-visible{outline:3px solid #f6e0a5;background:#fff4}.spot:hover{box-shadow:0 0 0 2px #ffe18caa,0 0 18px 5px #f5b94888;background:#ffdf8a18}.spot.wide{border-radius:20%}.spot.intro{animation:pulse 2.2s infinite;background:#45e8fd16;box-shadow:0 0 12px 5px #29e2ff99,0 0 32px 12px #35ddff66}.spot.intro.seen{animation:none;background:transparent;box-shadow:none}@keyframes pulse{50%{box-shadow:0 0 18px 8px #41f3ffff,0 0 40px 19px #32ddff9c;background:#37f2ff44}}.console{max-width:1600px;margin:12px auto 24px;padding:17px;border:3px ridge #b58a43;border-radius:14px;background:linear-gradient(120deg,#342719,#141d27 50%,#31291b);box-shadow:inset 0 0 20px #000,0 5px 30px #000}.console h2{margin:0 0 13px;font-size:clamp(28px,3.5vw,52px);text-align:center}.tracks{display:grid;grid-template-columns:1fr 1fr;gap:20px}.track{border:1px solid #977342;padding:12px;border-radius:8px;background:#0b111c}.track strong{letter-spacing:1px;font-size:clamp(24px,3vw,46px)}.lamps{display:flex;gap:clamp(7px,1vw,18px);margin:22px 0;flex-wrap:wrap}.lamp{height:clamp(36px,4vw,70px);width:clamp(36px,4vw,70px);border-radius:50%;border:2px solid #626569;background:#30363b;box-shadow:inset 0 3px 6px #000}.lamp.green.on{background:#35bcff;box-shadow:0 0 14px #35bcff}.lamp.blue.on{background:#35bcff;box-shadow:0 0 14px #35bcff}.lamp.error{background:#e83028;box-shadow:0 0 15px #ff1f19}.readout{font:clamp(30px,4.1vw,72px)/1.2 monospace;min-height:70px;letter-spacing:2px;white-space:nowrap}.feedback{min-height:52px;color:#f6d99a;font-size:clamp(24px,3vw,46px);font-weight:bold}.controls{text-align:center;margin-top:12px}.controls button,.close{border:2px solid #bd914b;background:linear-gradient(#654522,#241a12);color:#fff0cf;border-radius:6px;padding:10px 18px;cursor:pointer;font:inherit}.controls button:hover,.close:hover{filter:brightness(1.3)}.note{font:clamp(15px,1.5vw,22px) system-ui,sans-serif;text-align:center;color:#c3b39a;margin:12px}.overlay{position:fixed;inset:0;background:#020408d9;z-index:10;display:none;align-items:center;justify-content:center;padding:16px}.overlay.open{display:flex}.panel{width:min(680px,100%);max-height:90vh;overflow:auto;position:relative;padding:28px;border:8px ridge #ad7d38;border-radius:16px;background:radial-gradient(circle at 50% 10%,#3c3021,#141b20 80%);box-shadow:0 0 0 3px #372719,0 0 50px #000}.panel.digital{border-color:#447d9d;background:radial-gradient(circle at 50% 10%,#153f59,#07121e 80%)}.panel h2{margin:0 40px 15px 0;font-size:clamp(22px,4vw,30px);color:#f9d28a}.panel.digital h2{color:#92e4ff}.panel .message{font-size:clamp(18px,3vw,23px);line-height:1.6;white-space:pre-line}.panel .digit{font:bold clamp(65px,13vw,110px) Georgia;text-align:center;color:#f8d487;text-shadow:0 0 15px #a86c2a}.panel.digital .digit{color:#6fdbff;text-shadow:0 0 15px #2eabef}.digit.north-digit{color:#44f78c;text-shadow:0 0 16px #25bd65}.digit.west-digit{color:#6fdbff;text-shadow:0 0 16px #2eabef}.message.north-error{color:#ff5151;font-weight:bold;text-align:center;font-size:clamp(34px,7vw,62px);text-shadow:0 0 14px #b50000}.message.west-error{color:#ffe45a;font-weight:bold;text-align:center;font-size:clamp(34px,7vw,62px);text-shadow:0 0 14px #ad8b00}.close{position:absolute;right:13px;top:12px;padding:5px 11px;font:23px system-ui,sans-serif}.small{font:14px system-ui,sans-serif;color:#d0b98b}.testflag{font:12px system-ui,sans-serif;letter-spacing:1px;color:#f4d27c}@media(max-width:850px){.tracks{grid-template-columns:1fr}.console{margin:8px}.spot{min-width:22px;min-height:22px}.panel{padding:21px}}
+
+/* Three reward controls remain invisible until both coordinate circuits are complete. */
+.reward{position:absolute;transform:translate(-50%,-50%);width:3.1%;height:6.2%;border-radius:50%;border:3px ridge #ffe3a0;background:radial-gradient(circle at 34% 26%,#fff6bc 0%,#ffda54 22%,#d59011 56%,#6e3904 82%);box-shadow:0 0 13px 4px #ffd14a,0 0 30px 10px #ffbf3d9c,inset 0 0 8px #fff6aa;cursor:pointer;z-index:2;animation:rewardPulse 2s ease-in-out infinite}.reward[hidden]{display:none!important}.reward:hover,.reward:focus-visible{filter:brightness(1.25);outline:3px solid #fff6ae}.reward:after{content:"★";font:bold clamp(11px,1.5vw,24px) Georgia;color:#764100;text-shadow:0 1px #fff0a4}@keyframes rewardPulse{50%{box-shadow:0 0 20px 7px #ffdf65,0 0 45px 15px #ffd04bc4,inset 0 0 12px #fff6aa}}
+@media(max-width:650px){.console{padding:12px}.track{padding:10px}.readout{font-size:clamp(25px,6vw,44px);min-height:42px}.feedback{font-size:clamp(22px,5vw,34px)}.lamp{width:40px;height:40px}.reward{min-width:14px;min-height:14px}}
+
+/* V04: Progress lights are blue for both sequences; no coordinate readouts in the monitor. */
+.lamp.blue.on,.lamp.green.on{background:radial-gradient(circle at 35% 28%,#d5f7ff,#46caff 42%,#0071c5 88%);border-color:#8ce6ff;box-shadow:0 0 15px 4px #24b9ff,0 0 28px #24b9ff88,inset 0 0 5px #d6f7ff}
+/* iPad-inspired success reveal, approximately twice the previous panel text size. */
+.panel.ipad{width:min(1050px,96vw);border:15px solid #1b2631;border-radius:35px;padding:clamp(25px,5vw,55px);background:linear-gradient(145deg,#0d3553,#07111e 70%);box-shadow:0 0 0 3px #aebac5,0 0 0 8px #202c35,0 20px 90px #000,inset 0 0 60px #1474a755}
+.panel.ipad:before{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:8px;height:8px;background:#627e91;border-radius:50%}
+.panel.ipad h2{color:#8fe6ff;font:700 clamp(29px,4.8vw,60px)/1.12 system-ui,sans-serif;text-align:center;margin:8px 35px 25px;text-shadow:0 0 18px #1eacff88}
+.panel.ipad .message{font:700 clamp(32px,5vw,56px)/1.45 system-ui,sans-serif;white-space:pre-line;text-align:center;color:#e5f8ff;text-shadow:0 0 12px #32a8ff55;overflow-wrap:anywhere}
+@media(max-width:600px){.panel.ipad{border-width:9px;border-radius:25px;padding:30px 12px 22px}.panel.ipad h2{font-size:clamp(23px,6vw,34px);margin:5px 25px 15px}.panel.ipad .message{font-size:clamp(24px,6.1vw,36px)}}
+</style></head><body><header><h1>MACHINATIONS OF TIME</h1><p>Where gears, steam and circuitry share a secret</p></header><main><div class="frame"><div class="scene" id="scene" aria-label="Interactive steampunk machinery image"></div></div><section class="console"><h2>⚙ MASTER SEQUENCE MONITOR ⚙</h2><div class="tracks"><div class="track"><strong style="color:#69f3a0">NORTH CIRCUIT</strong><div class="lamps" id="northlamps"></div><div class="feedback" id="northfeedback">Awaiting activation</div></div><div class="track"><strong style="color:#74d5ff">WEST CIRCUIT</strong><div class="lamps" id="westlamps"></div><div class="feedback" id="westfeedback">Awaiting activation</div></div></div><div class="controls"><button id="reset">Reset both circuits</button></div><p class="note">Explore the machinery. An incorrect activation resets only the affected circuit. The introduction and hidden hints never reset progress. Complete both circuits to activate the three gold buttons.</p></section></main><div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="ptitle"><div class="panel" id="panel"><button class="close" id="close" aria-label="Close panel">×</button><h2 id="ptitle"></h2><div id="pcontent" class="message"></div></div></div><script>
+'use strict';
+// TEST coordinate assignments. Labels are internal only; no letters appear on the artwork.
+const digits={A:'4',B:'8',C:'1',D:'2',E:'3',F:'2',G:'9',H:'1',I:'4',J:'8'};
+const paths={north:['A','J','H','B','F'],west:['I','C','E','D','G']};
+const progress={north:0,west:0};
+let rewardButtons=[];
+const areas=[
+ ['A',9,45,8,13,'brass'],['B',14,12,7,12,'brass'],['C',22,30,8,12,'brass'],
+ ['D',43.45,58.2,2.6,5.2,'industrial'],['E',47.82,62.5,2.6,5.2,'industrial'],
+ ['F',76.15,51.05,2.5,5.1,'industrial'],['G',76.15,56.45,2.5,5.1,'industrial'],
+ ['H',76.15,61.15,2.5,5.1,'industrial'],['I',78,21,8,17,'digital'],['J',89,18,13,22,'digital'],
+ ['hint',46.9,87.8,3.2,7,'brass'],['hide',41.8,87.8,3.2,7,'industrial'],
+ ['intro',97.5,84,5,18,'digital']
+];
+const scene=document.getElementById('scene'),overlay=document.getElementById('overlay'),panel=document.getElementById('panel'),ptitle=document.getElementById('ptitle'),pcontent=document.getElementById('pcontent');
+let lastFocus=null,seenIntro=false;
+function show(title,body,style='industrial',digit=false,feedbackClass=''){lastFocus=document.activeElement;panel.className='panel '+(style==='digital'?'digital':style==='ipad'?'ipad':'');ptitle.textContent=title;pcontent.className=(digit?'digit':'message')+(feedbackClass?' '+feedbackClass:'');pcontent.textContent=body;overlay.classList.add('open');document.getElementById('close').focus()}
+function close(){overlay.classList.remove('open');if(lastFocus)lastFocus.focus()}
+document.getElementById('close').onclick=close;overlay.onclick=e=>{if(e.target===overlay)close()};document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+function render(){for(const axis of ['north','west']){let n=progress[axis];document.getElementById(axis+'lamps').innerHTML=Array.from({length:5},(_,i)=>`<span class="lamp blue ${i<n?'on':''}" aria-label="${i<n?'Activated':'Inactive'} lamp ${i+1}"></span>`).join('');}rewardButtons.forEach(el=>{el.hidden=!(progress.north===5&&progress.west===5)})}
+function activate(key,style){
+ const axis=paths.north.includes(key)?'north':'west',seq=paths[axis],n=progress[axis];
+ const feedback=document.getElementById(axis+'feedback');
+ if(n===5){show('CIRCUIT COMPLETE','This circuit is already energized. You may reset it below to test the sequence again.',style);return}
+ if(key===seq[n]){
+   progress[axis]++;
+   feedback.textContent=progress[axis]===5?'SEQUENCE COMPLETE':'SEQUENCE NUMBER CORRECT';
+   feedback.style.color=axis==='north'?'#44f78c':'#6fdbff';
+   render();
+   show('SEQUENCE NUMBER CORRECT',digits[key],style,true,axis+'-digit');
+ }else{
+   progress[axis]=0;render();
+   feedback.textContent='SEQUENCE ERROR · Reset';
+   feedback.style.color=axis==='north'?'#ff5151':'#ffe45a';
+   const lamps=document.getElementById(axis+'lamps');
+   lamps.firstElementChild.classList.add('error');
+   show('SEQUENCE ERROR','TRY AGAIN',style,false,axis+'-error');
+   setTimeout(()=>{lamps.firstElementChild?.classList.remove('error')},1400);
+ }
+}
+function clickSpot(key,style,el){if(key==='intro'){seenIntro=true;el.classList.add('seen');show('CIRCUIT INITIALIZED',`From turning gears to circuits bright,\nEach hidden working plays its part.\nFollow the sparks, explore the machine,\nFor more is connected than first is seen.`,style);return}if(key==='hint'){show('THE ENGINEER’S WHISPER',`From steam’s first breath to circuits bright,\nTen stations wait to test your sight.\nTwo pathways hum through gears and steel,\nTheir secrets only order will reveal.\n\nGreen recalls the northern way,\nBlue guides west where shadows play.\nBut should the crimson warning flare,\nRetrace your steps with greater care.`,style);return}if(key==='hide'){show('A CACHER’S FIELD NOTE',`Where cedar branches sway and play,\nA little treasure hides away.\nFour feet up, not on the ground,\nAmong the cedar, I’ll be found!`,style);return}activate(key,style)}
+for(const [key,x,y,w,h,style] of areas){let el=document.createElement('button');el.type='button';el.className='spot'+(key==='intro'?' intro':'')+(w>12?' wide':'');el.style.cssText=`left:${x}%;top:${y}%;width:${w}%;height:${h}%`;el.setAttribute('aria-label',key==='intro'?'Glowing circuit board':key==='hint'?'Brass button':key==='hide'?'Plain button':'Inspect machine component');el.title=key==='intro'?'Inspect glowing circuit board':'';el.addEventListener('click',()=>clickSpot(key,style,el));scene.appendChild(el)}
+// Gold controls on the three square plates shown in the user's annotated reference.
+// They are rewards, not additional sequence steps.
+for(const [i,x,y] of [[1,46.2,20.5],[2,55.6,22.7],[3,63.6,25.4]]){
+ const b=document.createElement('button');b.type='button';b.className='reward';b.hidden=true;
+ b.style.left=x+'%';b.style.top=y+'%';b.setAttribute('aria-label','Gold completion button '+i);
+ b.title='Coordinates unlocked';b.onclick=()=>show('CONGRATULATIONS! ALL SYSTEMS ENGAGED',
+ 'SUCCESS!\n\nN 29° 48.182\nW 099° 41.329\n\nYou have successfully completed both sequences!', 'ipad');
+ scene.appendChild(b);rewardButtons.push(b);
+}
+document.getElementById('reset').onclick=()=>{progress.north=progress.west=0;document.getElementById('northfeedback').textContent='Awaiting activation';document.getElementById('westfeedback').textContent='Awaiting activation';document.getElementById('northfeedback').style.color='';document.getElementById('westfeedback').style.color='';render()};render();
+</script></body></html>
